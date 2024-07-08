@@ -1,0 +1,15 @@
+simplejavamail.smtp.host=smtp.yandex.ru
+simplejavamail.smtp.port=465
+simplejavamail.smtp.username=test
+simplejavamail.smtp.password=test
+
+# default sender and reply-to address
+simplejavamail.defaults.from.name=test
+simplejavamail.defaults.from.address=test@yandex.ru
+
+simplejavamail.defaults.to.address=test@gmail.com
+
+simplejavamail.transportstrategy=SMTPS
+
+simplejavamail.defaults.connectionpool.coresize=1
+simplejavamail.defaults.connectionpool.expireafter.millis=30000

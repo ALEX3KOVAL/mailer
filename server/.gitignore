@@ -1,0 +1,2 @@
+src/main/resources/mailer/emailing.common.properties
+src/main/resources/mailer/emailing.auth.yaml
