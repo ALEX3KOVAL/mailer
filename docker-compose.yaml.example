@@ -2,21 +2,21 @@ version: "3.9"
 
 networks:
   jku_local_net:
-    driver: bridge
+    external: true
+
 services:
   mailer_server:
     container_name: mailer_server
     networks:
       - jku_local_net
+    env_file:
+      - ".env"
     build:
       context: .
-      dockerfile: ./docker/mailer-server/Dockerfile
+      dockerfile: docker/Dockerfile
     restart: unless-stopped
-    depends_on:
-      jku_app_database:
-        condition: service_healthy
+    volumes:
+      - ./.env:/mailer/.env
     healthcheck:
       test: [ "CMD-SHELL", "wget -O /dev/null app_server || exit 1" ]
       timeout: 5s
-    ports:
-      - "10234:8081"
