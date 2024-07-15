@@ -21,13 +21,5 @@ object JwtConfig {
         //.withIssuer(ISSUER)
         .build()
 
-    fun generateToken(userId: String, expiresAt: Long): String = JWT.create()
-        //.withIssuer(ISSUER)
-        .withClaim(USER_ID, userId)
-        .withExpiresAt(Date(System.currentTimeMillis() + expiresAt))
-        .sign(algorithm)
-
     val Payload.userId : String get() = getClaim(USER_ID).asString()
 }
-
-val ApplicationCall.userPrincipal get() = authentication.principal<UserPrincipal>()!!
